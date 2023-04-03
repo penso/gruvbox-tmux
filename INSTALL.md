@@ -4,7 +4,7 @@
 
 If you are a tpm user, you can install the theme and keep up to date by adding the following to your .tmux.conf file:
 
-	set -g @plugin 'dracula/tmux'
+    set -g @plugin 'gruvbox/tmux'
 
 Add any configuration options below this line in your tmux config.
 
@@ -21,11 +21,11 @@ programs.tmux = {
 		sensible
 		yank
 		{
-			plugin = dracula;
+			plugin = gruvbox;
 			extraConfig = ''
-				set -g @dracula-show-battery false
-				set -g @dracula-show-powerline true
-				set -g @dracula-refresh-rate 10
+				set -g @gruvbox-show-battery false
+				set -g @gruvbox-show-powerline true
+				set -g @gruvbox-refresh-rate 10
 			'';
 		}
 	];
@@ -38,26 +38,26 @@ programs.tmux = {
 
 #### Activating theme
 
-1. Make sure  `run -b '~/.tmux/plugins/tpm/tpm'` is at the bottom of your .tmux.conf
+1. Make sure `run -b '~/.tmux/plugins/tpm/tpm'` is at the bottom of your .tmux.conf
 2. Run tmux
 3. Use the tpm install command: `prefix + I` (default prefix is ctrl+b)
 
 #### Configuration
 
-To enable plugins set up the `@dracula-plugins` option in you `.tmux.conf` file, separate plugin by space.
+To enable plugins set up the `@gruvbox-plugins` option in you `.tmux.conf` file, separate plugin by space.
 The order that you define the plugins will be the order on the status bar left to right.
 
 ```bash
 # available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
-set -g @dracula-plugins "cpu-usage gpu-usage ram-usage"
+set -g @gruvbox-plugins "cpu-usage gpu-usage ram-usage"
 ```
 
 For each plugin is possible to customize background and foreground colors
 
 ```bash
 # available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
-# set -g @dracula-[plugin-name]-colors "[background] [foreground]"
-set -g @dracula-cpu-usage-colors "pink dark_gray"
+# set -g @gruvbox-[plugin-name]-colors "[background] [foreground]"
+set -g @gruvbox-cpu-usage-colors "pink dark_gray"
 ```
 
 #### Status bar options
@@ -65,50 +65,50 @@ set -g @dracula-cpu-usage-colors "pink dark_gray"
 Enable powerline symbols
 
 ```bash
-set -g @dracula-show-powerline true
+set -g @gruvbox-show-powerline true
 ```
 
 Switch powerline symbols
 
 ```bash
 # for left
-set -g @dracula-show-left-sep 
+set -g @gruvbox-show-left-sep 
 
 # for right symbol (can set any symbol you like as seperator)
-set -g @dracula-show-right-sep 
+set -g @gruvbox-show-right-sep 
 ```
 
 Enable window flags
 
 ```bash
-set -g @dracula-show-flags true
+set -g @gruvbox-show-flags true
 ```
 
 Adjust the refresh rate for the status bar
 
 ```bash
 # the default is 5, it can accept any number
-set -g @dracula-refresh-rate 5
+set -g @gruvbox-refresh-rate 5
 ```
 
 Switch the left smiley icon
 
 ```bash
 # it can accept `session`, `smiley`, `window`, or any character.
-set -g @dracula-show-left-icon session
+set -g @gruvbox-show-left-icon session
 ```
 
 Add padding to the left smiley icon
 
 ```bash
 # default is 1, it can accept any number and 0 disables padding.
-set -g @dracula-left-icon-padding 1
+set -g @gruvbox-left-icon-padding 1
 ```
 
 Enable high contrast pane border
 
 ```bash
-set -g @dracula-border-contrast true
+set -g @gruvbox-border-contrast true
 ```
 
 #### cpu-usage options
@@ -116,13 +116,13 @@ set -g @dracula-border-contrast true
 Customize label
 
 ```bash
-set -g @dracula-cpu-usage-label "CPU"
+set -g @gruvbox-cpu-usage-label "CPU"
 ```
 
 Show system load average instead of CPU usage percentage (default)
 
 ```bash
-set -g @dracula-cpu-display-load true
+set -g @gruvbox-cpu-display-load true
 ```
 
 CPU usage percentage (default) - in percentage (output: %)
@@ -133,7 +133,7 @@ Load average – is the average system load calculated over a given period of ti
 Customize label
 
 ```bash
-set -g @dracula-battery-label "Battery"
+set -g @gruvbox-battery-label "Battery"
 ```
 
 #### gpu-usage options
@@ -141,7 +141,7 @@ set -g @dracula-battery-label "Battery"
 Customize label
 
 ```bash
-set -g @dracula-gpu-usage-label "GPU"
+set -g @gruvbox-gpu-usage-label "GPU"
 ```
 
 #### ram-usage options
@@ -149,7 +149,7 @@ set -g @dracula-gpu-usage-label "GPU"
 Customize label
 
 ```bash
-set -g @dracula-ram-usage-label "RAM"
+set -g @gruvbox-ram-usage-label "RAM"
 ```
 
 #### network-ping options
@@ -157,8 +157,8 @@ set -g @dracula-ram-usage-label "RAM"
 You can configure which server (hostname, IP) you want to ping and at which rate (in seconds). Default is google.com at every 5 seconds.
 
 ```bash
-set -g @dracula-ping-server "google.com"
-set -g @dracula-ping-rate 5
+set -g @gruvbox-ping-server "google.com"
+set -g @gruvbox-ping-rate 5
 ```
 
 #### time options
@@ -166,56 +166,62 @@ set -g @dracula-ping-rate 5
 Disable timezone
 
 ```bash
-set -g @dracula-show-timezone false
+set -g @gruvbox-show-timezone false
 ```
 
 Swap date to day/month
 
 ```bash
-set -g @dracula-day-month true
+set -g @gruvbox-day-month true
 ```
 
 Enable military time
 
 ```bash
-set -g @dracula-military-time true
+set -g @gruvbox-military-time true
 ```
 
 #### git options
 
 Hide details of git changes
+
 ```bash
-set -g @dracula-git-disable-status true
+set -g @gruvbox-git-disable-status true
 ```
 
 Set symbol to use for when branch is up to date with HEAD
+
 ```bash
-# default is ✓. Avoid using non unicode characters that bash uses like $, * and ! 
-set -g @dracula-git-show-current-symbol ✓
+# default is ✓. Avoid using non unicode characters that bash uses like $, * and !
+set -g @gruvbox-git-show-current-symbol ✓
 ```
 
 Set symbol to use for when branch diverges from HEAD
+
 ```bash
-# default is unicode !. Avoid bash special characters 
-set -g @dracula-git-show-diff-symbol !
+# default is unicode !. Avoid bash special characters
+set -g @gruvbox-git-show-diff-symbol !
 ```
 
 Set symbol or message to use when the current pane has no git repo
+
 ```bash
 # default is unicode no message
-set -g @dracula-git-no-repo-message ""
+set -g @gruvbox-git-no-repo-message ""
 ```
 
 Hide untracked files from being displayed as local changes
+
 ```bash
 # default is false
-set -g @dracula-git-no-untracked-files true
+set -g @gruvbox-git-no-untracked-files true
 ```
 
 Show remote tracking branch together with diverge/sync state
+
 ```bash
 # default is false
-set -g @dracula-git-show-remote-status true
+set -g @gruvbox-git-show-remote-status true
 ```
 
 #### weather options
@@ -223,17 +229,17 @@ set -g @dracula-git-show-remote-status true
 Switch from default fahrenheit to celsius
 
 ```bash
-set -g @dracula-show-fahrenheit false
+set -g @gruvbox-show-fahrenheit false
 ```
 
 Set your location manually
 
 ```bash
-set -g @dracula-fixed-location "Some City"
+set -g @gruvbox-fixed-location "Some City"
 ```
 
 Hide your location
 
 ```bash
-set -g @dracula-show-location false
+set -g @gruvbox-show-location false
 ```

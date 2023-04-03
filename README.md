@@ -1,4 +1,4 @@
-# Dracula for [tmux](https://github.com/tmux/tmux/wiki)
+# gruvbox for [tmux](https://github.com/tmux/tmux/wiki)
 
 > A dark theme for [tmux](https://github.com/tmux/tmux/wiki)
 
@@ -6,11 +6,11 @@
 
 ## Install
 
-All instructions can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+All instructions can be found at [gruvboxtheme.com/tmux](https://gruvboxtheme.com/tmux).
 
 ## Configuration
 
-Configuration and options can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+Configuration and options can be found at [gruvboxtheme.com/tmux](https://gruvboxtheme.com/tmux).
 
 ## Features
 
@@ -39,7 +39,7 @@ FreeBSD compatibility is in development
 
 ## Team
 
-This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/tmux/graphs/contributors).
+This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/gruvbox/tmux/graphs/contributors).
 
 | [![Dane Williams](https://avatars2.githubusercontent.com/u/22798229?s=70&v=4",)](https://github.com/danerwilliams) | [![Ethan Edwards](https://avatars1.githubusercontent.com/u/60861925?s=70&v=4)](https://github.com/ethancedwards8) |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -47,9 +47,9 @@ This theme is maintained by the following person(s) and a bunch of [awesome cont
 
 ## Community
 
-- [Twitter](https://twitter.com/draculatheme) - Best for getting updates about themes and new stuff.
-- [GitHub](https://github.com/dracula/dracula-theme/discussions) - Best for asking questions and discussing issues.
-- [Discord](https://draculatheme.com/discord-invite) - Best for hanging out with the community.
+- [Twitter](https://twitter.com/gruvboxtheme) - Best for getting updates about themes and new stuff.
+- [GitHub](https://github.com/gruvbox/gruvbox-theme/discussions) - Best for asking questions and discussing issues.
+- [Discord](https://gruvboxtheme.com/discord-invite) - Best for hanging out with the community.
 
 ## License
 

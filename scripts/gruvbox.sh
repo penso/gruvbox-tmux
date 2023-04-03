@@ -7,38 +7,38 @@ source $current_dir/utils.sh
 
 main()
 {
-  datafile=/tmp/.dracula-tmux-data
+  datafile=/tmp/.gruvbox-tmux-data
 
   # set configuration option variables
-  show_fahrenheit=$(get_tmux_option "@dracula-show-fahrenheit" true)
-  show_location=$(get_tmux_option "@dracula-show-location" true)
-  fixed_location=$(get_tmux_option "@dracula-fixed-location")
-  show_powerline=$(get_tmux_option "@dracula-show-powerline" false)
-  show_flags=$(get_tmux_option "@dracula-show-flags" false)
-  show_left_icon=$(get_tmux_option "@dracula-show-left-icon" smiley)
-  show_left_icon_padding=$(get_tmux_option "@dracula-left-icon-padding" 1)
-  show_military=$(get_tmux_option "@dracula-military-time" false)
-  show_timezone=$(get_tmux_option "@dracula-show-timezone" true)
-  show_left_sep=$(get_tmux_option "@dracula-show-left-sep" )
-  show_right_sep=$(get_tmux_option "@dracula-show-right-sep" )
-  show_border_contrast=$(get_tmux_option "@dracula-border-contrast" false)
-  show_day_month=$(get_tmux_option "@dracula-day-month" false)
-  show_refresh=$(get_tmux_option "@dracula-refresh-rate" 5)
-  show_kubernetes_context_label=$(get_tmux_option "@dracula-kubernetes-context-label" "")
-  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@dracula-plugins" "battery network weather")
+  show_fahrenheit=$(get_tmux_option "@gruvbox-show-fahrenheit" true)
+  show_location=$(get_tmux_option "@gruvbox-show-location" true)
+  fixed_location=$(get_tmux_option "@gruvbox-fixed-location")
+  show_powerline=$(get_tmux_option "@gruvbox-show-powerline" false)
+  show_flags=$(get_tmux_option "@gruvbox-show-flags" false)
+  show_left_icon=$(get_tmux_option "@gruvbox-show-left-icon" smiley)
+  show_left_icon_padding=$(get_tmux_option "@gruvbox-left-icon-padding" 1)
+  show_military=$(get_tmux_option "@gruvbox-military-time" false)
+  show_timezone=$(get_tmux_option "@gruvbox-show-timezone" true)
+  show_left_sep=$(get_tmux_option "@gruvbox-show-left-sep" )
+  show_right_sep=$(get_tmux_option "@gruvbox-show-right-sep" )
+  show_border_contrast=$(get_tmux_option "@gruvbox-border-contrast" false)
+  show_day_month=$(get_tmux_option "@gruvbox-day-month" false)
+  show_refresh=$(get_tmux_option "@gruvbox-refresh-rate" 5)
+  show_kubernetes_context_label=$(get_tmux_option "@gruvbox-kubernetes-context-label" "")
+  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@gruvbox-plugins" "battery network weather")
 
-  # Dracula Color Pallette
-  white='#f8f8f2'
-  gray='#44475a'
-  dark_gray='#282a36'
-  light_purple='#bd93f9'
-  dark_purple='#6272a4'
-  cyan='#8be9fd'
-  green='#50fa7b'
-  orange='#ffb86c'
-  red='#ff5555'
-  pink='#ff79c6'
-  yellow='#f1fa8c'
+  # gruvbox Color Pallette
+  white='#fbf1c7'
+  gray='#a89984'
+  dark_gray='#282828'
+  light_purple='#d3869b'
+  dark_purple='#b16286'
+  cyan='#458588'
+  green='#98971a'
+  orange='#d65d0e'
+  red='#cc241d'
+  pink='#689d6a'
+  yellow='#d79921'
 
   # Handle left icon configuration
   case $show_left_icon in
@@ -129,54 +129,54 @@ main()
   for plugin in "${plugins[@]}"; do
 
     if [ $plugin = "git" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@gruvbox-git-colors" "green dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/git.sh)"
     fi
 
     if [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-battery-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-battery-colors" "pink dark_gray")
       script="#($current_dir/battery.sh)"
     fi
 
     if [ $plugin = "gpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-gpu-usage-colors" "pink dark_gray")
       script="#($current_dir/gpu_usage.sh)"
     fi
 
     if [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-cpu-usage-colors" "orange dark_gray")
       script="#($current_dir/cpu_info.sh)"
     fi
 
     if [ $plugin = "ram-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-ram-usage-colors" "cyan dark_gray")
       script="#($current_dir/ram_info.sh)"
     fi
 
     if [ $plugin = "network" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-network-colors" "cyan dark_gray")
       script="#($current_dir/network.sh)"
     fi
 
     if [ $plugin = "network-bandwidth" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-bandwidth-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-network-bandwidth-colors" "cyan dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/network_bandwidth.sh)"
     fi
 
     if [ $plugin = "network-ping" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-network-ping-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@gruvbox-network-ping-colors" "cyan dark_gray")
       script="#($current_dir/network_ping.sh)"
     fi
 
     if [ $plugin = "spotify-tui" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-spotify-tui-colors" "green dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@gruvbox-spotify-tui-colors" "green dark_gray")
       script="#($current_dir/spotify-tui.sh)"
     fi
 
     if [ $plugin = "kubernetes-context" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-kubernetes-context-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@gruvbox-kubernetes-context-colors" "cyan dark_gray")
       script="#($current_dir/kubernetes_context.sh $show_kubernetes_context_label)"
     fi
 
@@ -187,12 +187,12 @@ main()
         sleep 0.01
       done
 
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-weather-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-weather-colors" "orange dark_gray")
       script="#(cat $datafile)"
     fi
 
     if [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-time-colors" "dark_purple white")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@gruvbox-time-colors" "dark_purple white")
       if $show_day_month && $show_military ; then # military time and dd/mm
         script="%a %d/%m %R ${timezone} "
       elif $show_military; then # only military time
