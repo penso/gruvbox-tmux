@@ -1,8 +1,6 @@
 # gruvbox for [tmux](https://github.com/tmux/tmux/wiki)
 
-> A dark theme for [tmux](https://github.com/tmux/tmux/wiki)
-
-![Screenshot](./screenshot.png)
+Just cloned the dracula theme, and copied colors from [janders](https://github.com/janders223/gruvbox-tmux)
 
 ## Install
 
